@@ -14,9 +14,6 @@ inputs:
   ssh_user:
     description: Remote user name.
     required: true
-  docker_compose_prefix:
-    description: Prefix for docker-compose containers.
-    required: true
   docker_compose_filename:
     description: Docker compose file to use
     default: docker-compose.yaml
@@ -29,4 +26,3 @@ runs:
     SSH_PORT: ${{ inputs.ssh_port }}
     SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
     DOCKER_COMPOSE_FILENAME: ${{ inputs.docker_compose_filename }}
-    DOCKER_COMPOSE_PREFIX: ${{ inputs.docker_compose_prefix }}

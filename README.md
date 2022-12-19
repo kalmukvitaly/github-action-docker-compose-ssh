@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@main
 
     - uses: kalmukvitaly/github-action-docker-compose-ssh@main
       name: Docker-Compose Remote Deployment

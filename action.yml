@@ -26,3 +26,4 @@ runs:
     SSH_PORT: ${{ inputs.ssh_port }}
     SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
     DOCKER_COMPOSE_FILENAME: ${{ inputs.docker_compose_filename }}
+    PROJECT_NAME: ${{ inputs.project_name }}

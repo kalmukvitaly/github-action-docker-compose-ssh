@@ -20,7 +20,7 @@ tar cjvf /tmp/workspace.tar.bz2 --exclude .git .
 log "Launching ssh agent."
 eval `ssh-agent -s`
 
-remote_command="set -e ; log() { echo '>> [remote]' \$@ ; } ; cleanup() { log 'Removing workspace...'; rm -rf \"\$HOME/workspace\" ; } ; log 'Creating workspace directory...' ; mkdir -p \"\$HOME/workspace\" ; trap cleanup EXIT ; log 'Unpacking workspace...' ; tar -C \"\$HOME/workspace\" -xjv ; log 'Launching docker-compose...'; ls -a; cd \"\$HOME/workspace\" ; log 'docker-compose -f \"$DOCKER_COMPOSE_FILENAME\" --env-file ../.env up -d --remove-orphans --build' ; sudo docker-compose -f \"$DOCKER_COMPOSE_FILENAME\" --env-file ../.env up -d --remove-orphans --build ; "
+remote_command="set -e ; log() { echo '>> [remote]' \$@ ; } ; cleanup() { log 'Removing workspace...'; rm -rf \"\$HOME/$PROJECT_NAME/workspace\" ; } ; log 'Creating workspace directory...' ; mkdir -p \"\$HOME/$PROJECT_NAME/workspace\" ; trap cleanup EXIT ; log 'Unpacking workspace...' ; tar -C \"\$HOME/$PROJECT_NAME/workspace\" -xjv ; log 'Launching docker-compose...'; ls -a; cd \"\$HOME/$PROJECT_NAME/workspace\" ; log 'docker-compose -f \"$DOCKER_COMPOSE_FILENAME\" --env-file ../.env up -d --remove-orphans --build' ; sudo docker-compose -f \"$DOCKER_COMPOSE_FILENAME\" --env-file ../.env up -d --remove-orphans --build ; "
 
 ssh-add <(echo "$SSH_PRIVATE_KEY")
 
